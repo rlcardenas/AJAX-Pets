@@ -1,5 +1,4 @@
-<h1> here is where our ajax pet <h1>
-    <!doctype html>
+ <!doctype html>
     <html>
     <head>
      
@@ -9,8 +8,29 @@
        <script type="text/javascript">
            $("document").ready(function(){
                $('#myForm').submit(function(e){
-                   alert("hi!  I'm jQuery!");
-                  
+                   //alert("hi!  I'm jQuery!");
+
+                   //here are the selections made by the user
+                   let feels = $("input[name=feels] : checked").val();
+                   let likes = $("input[name=likes] : checked").val();
+                   let eats= $("input[name=eats] : checked").val();
+                   //alert(feels);
+
+
+                   if(feels == "fluffy" && likes == "petted" && eats == "carrots"){
+                       alert('whats up doc?')
+
+                   }
+
+                   let output = "";
+
+                   output += `<p>Your pet feels: ${feels}<p>`;
+                   output += `<p>Your pet likes to be: ${likes}<p>`; 
+                   output += `<p>Your pet likes to eat: ${eats}<p>`;
+
+                   $("#output").html(output);
+                    
+
                    e.preventDefault();//no need to submit as you'll be doing AJAX on this page
            
                });
